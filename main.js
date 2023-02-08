@@ -6,23 +6,27 @@ const final = document.getElementById("final")
 final.style.display = "none";
 
 btn.addEventListener("click", () => {
-    fetch("https://passwordchecker.cyclic.app", {
-        method: "POST",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ "key": "meme69201020112012urmomkidbozo6969420moaner" })
-    }).then((res) => {
-        res.json()
-    }).then((data) => {
-        console.log(data)
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    var raw = JSON.stringify({
+    "key": "meme69201020112012urmomkidbozo6969420moaner"
+    });
+    var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: raw,
+    redirect: 'follow'
+    };
+    fetch("https://passwordchecker.cyclic.app/api", requestOptions)
+    .then(response => response.json())
+    .then(result => {console.log(result); console.log(data)
         result.innerText = data.body.authenticated;
         setTimeout(() => {
             btn.style.display = "none";
             key.style.display = "none";
             result.style.display = "none";
         }, 5000)
-        final.style.display = "block";
-    })
-})
+        final.style.display = "block";})
+    .catch(error => console.log('error', error));
+    }
+)
