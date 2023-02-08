@@ -1,6 +1,6 @@
 const btn = document.getElementById("keysubmit")
 const key = document.getElementById("key")
-const result = document.getElementById("result")
+const resultt = document.getElementById("result")
 const final = document.getElementById("final")
 
 final.style.display = "none";
@@ -20,11 +20,11 @@ btn.addEventListener("click", () => {
     fetch("https://passwordchecker.cyclic.app/api", requestOptions)
     .then(response => response.json())
     .then(result => {console.log(result); 
-        result.innerText = result.body.authenticated;
+        resultt.innerText = JSON.parse(result).body.authenticated;
         setTimeout(() => {
             btn.style.display = "none";
             key.style.display = "none";
-            result.style.display = "none";
+            resultt.style.display = "none";
         }, 5000)
         final.style.display = "block";})
     .catch(error => console.log('error', error));
