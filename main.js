@@ -9,7 +9,7 @@ btn.addEventListener("click", () => {
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
     var raw = JSON.stringify({
-    "key": "meme69201020112012urmomkidbozo6969420moaner"
+    "key": key.value
     });
     var requestOptions = {
     method: 'POST',
