@@ -19,8 +19,8 @@ btn.addEventListener("click", () => {
     };
     fetch("https://passwordchecker.cyclic.app/api", requestOptions)
     .then(response => response.json())
-    .then(result => {console.log(result); 
-        resultt.innerText = JSON.parse(result).body.authenticated;
+    .then(result => {console.log(JSON.parse(result)); 
+        resultt.innerText = JSON.parse(result);
         setTimeout(() => {
             btn.style.display = "none";
             key.style.display = "none";
